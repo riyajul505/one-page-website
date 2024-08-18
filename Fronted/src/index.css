@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.active {
+  background-color: tomato;
+  padding: 10px;
+  border-radius: 10px;
+}

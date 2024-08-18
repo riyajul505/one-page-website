@@ -6,12 +6,15 @@ const Navbar = () => {
     <div>
       <div className="navbar bg-base-100">
         <div className="flex-1">
-          <a href="/" className="btn btn-ghost text-xl">OnePage</a>
+          <a href="/" className="btn btn-ghost text-xl">
+            OnePage
+          </a>
         </div>
         <div className="flex-none">
-          <button className="btn btn-square btn-ghost">
-            <NavLink to={'/login'}>Login</NavLink>
+          <button className="btn btn-ghost border-black">
+            <NavLink to={'/login'}>SignUp/Login</NavLink>
           </button>
+          
         </div>
       </div>
     </div>
