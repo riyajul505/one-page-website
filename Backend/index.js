@@ -9,7 +9,7 @@ const port = process.env.port || 5000;
 
 app.use(
   cors({
-    origin: ["http://localhost:5173"],
+    origin: 'https://one-page-web.surge.sh',
     credentials: true,
   })
 );
@@ -44,15 +44,13 @@ async function run() {
       if(category){
         query.category = category;
       }
-      console.log(query);
       const results = await productsCollection.find(query).toArray();
-      console.log(results);
       res.send(results);
     });
 
-    console.log(
-      "Pinged your deployment. You successfully connected to MongoDB!"
-    );
+    // console.log(
+    //   "Pinged your deployment. You successfully connected to MongoDB!"
+    // );
   } finally {
     // Ensures that the client will close when you finish/error
     //   await client.close();
