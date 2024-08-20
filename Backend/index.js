@@ -32,8 +32,23 @@ async function run() {
       .db("one-page-website")
       .collection("products");
 
-    
-
+    app.get("/products", async (req, res) => {
+      const { search, brand, category } = req.query;
+      const query = {};
+      if(search){
+        query.product_name = search;
+      }
+      if(brand){
+        query.brand = brand;
+      }
+      if(category){
+        query.category = category;
+      }
+      console.log(query);
+      const results = await productsCollection.find(query).toArray();
+      console.log(results);
+      res.send(results);
+    });
 
     console.log(
       "Pinged your deployment. You successfully connected to MongoDB!"
