@@ -20,13 +20,17 @@ const Home = () => {
   ];
   const [search, setSearch] = useState("");
   const [catego, setCategories] = useState('');
+  const [selectedBrand, setBrand] = useState('');
   const handleCategoryChange = e => {
     setCategories(e); 
   }
-
+  const handleBrandChange = e => {
+    setBrand(e);
+  }
+  console.log(search, catego, selectedBrand)
   return (
     <div>
-      <div className="flex gap-2 items-center">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-2 items-center">
         {/* search */}
         <input
           onChange={(e) => {
@@ -35,13 +39,20 @@ const Home = () => {
           type="text"
           name="searched"
           placeholder="Search here..."
-          className="input input-bordered w-full max-w-xs"
+          className="input input-bordered w-auto"
         />
         {/* select category */}
-        <div className="w-72">
+        <div className="w-auto">
           <Select label="Select Category">
             {
                 categories.map((i, idx)=><Option onClick={()=>handleCategoryChange(i)} value={i} key={idx}> {i} </Option>)
+            }
+          </Select>
+        </div>
+        <div className="w-auto">
+          <Select label="Select Brand">
+            {
+                brands.map((i, idx)=><Option onClick={()=>handleBrandChange(i)} value={i} key={idx}> {i} </Option>)
             }
           </Select>
         </div>
